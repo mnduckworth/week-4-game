@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<head>
+	<title>Starcraft RPG</title>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<img src="assets/images/emblem.png" id ="emblem">
+	</div>
+	<div class="row">
+		<div class="col-xs-6 col-md-2">
+		    <a href="#" class="thumbnail">
+		      <img src="assets/images/Raynor.jpg" alt="...">
+		      <div class="caption">
+		      	<p>Jim Raynor</p>
+		      </div>
+		    </a>
+	    </div>
+	    <div class="col-xs-6 col-md-2">
+		    <a href="#" class="thumbnail">
+		      <img src="assets/images/Kerrigan.jpg" alt="...">
+		      <div class="caption">
+		      	<p>Sarah Kerrigan</p>
+		      </div>
+		    </a>
+	    </div>
+	    <div class="col-xs-6 col-md-2">
+		    <a href="#" class="thumbnail">
+		      <img src="assets/images/Duke.png." alt="...">
+		      <div class="caption">
+		      	<p>Edmund Duke</p>
+		      </div>
+		    </a>
+	    </div>
+	    <div class="col-xs-6 col-md-2">
+		    <a href="#" class="thumbnail">
+		      <img src="assets/images/Stukov.jpg" alt="...">
+		      <div class="caption">
+		      	<p>Alexei Stukov</p>
+		      </div>
+		    </a>
+	    </div>
+	    <div class="col-xs-6 col-md-2">
+		    <a href="#" class="thumbnail">
+		      <img src="assets/images/tassadar.jpg" alt="...">
+		      <div class="caption">
+		      	<p>Tassadar</p>
+		      </div>
+		    </a>
+	    </div>
+	    <div class="col-xs-6 col-md-2">
+		    <a href="#" class="thumbnail">
+		      <img src="assets/images/Artanis.png" alt="...">
+		      <div class="caption">
+		      	<p>Artanis</p>
+		      </div>
+		    </a>
+	    </div>
+	</div>
+	<div class="row">
+		<h1 id="selection">Select a Character</h1>
+	</div>
+	<div class ="row">
+		<div class="col-md-5" id="player"></div>
+		<div class="col-md-2 text-center">
+			 <button type="button" class="btn btn-default">Attack!</button>
+		</div>
+		<div class="col-md-5" id="enemy"></div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	var selectedCharacter = false;
+	var selectedEnemy = false;
+	$(".thumbnail").on("click", function(){
+		if(!selectedCharacter && !selectedEnemy){
+			var userCharacter = $(this);
+			$("#player").append(userCharacter);
+			$("#selection").html("Now Select An Enemy");
+			selectedCharacter = true;
+		}
+		else if(selectedCharacter && !selectedEnemy){
+			var enemyCharacter = $(this);
+			$("#enemy").append(enemyCharacter);
+			$("#selection").html("Now Fight!");
+			selectedEnemy = true;
+		}
+	})
+
+</script>
+</body>
+</html>
