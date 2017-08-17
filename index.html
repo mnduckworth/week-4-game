@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/javascript/game.js"></script>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 <head>
@@ -11,9 +12,9 @@
 	<div class="row">
 		<img src="assets/images/emblem.png" id ="emblem">
 	</div>
-	<div class="row" id="characters">
-		<div class="col-xs-6 col-md-2">
-		    <a href="#" class="thumbnail jim">
+	<div class="row">
+		<div class="col-xs-6 col-md-2 characters">
+		    <a href="#" class="thumbnail jim ">
 		      <img src="assets/images/Raynor.jpg" alt="...">
 		      <div class="caption">
 		      	<p>Jim Raynor</p>
@@ -22,7 +23,7 @@
 		      </div>
 		    </a>
 	    </div>
-	    <div class="col-xs-6 col-md-2">
+	    <div class="col-xs-6 col-md-2 characters">
 		    <a href="#" class="thumbnail sarah">
 		      <img src="assets/images/Kerrigan.jpg" alt="...">
 		      <div class="caption">
@@ -32,7 +33,7 @@
 		      </div>
 		    </a>
 	    </div>
-	    <div class="col-xs-6 col-md-2">
+	    <div class="col-xs-6 col-md-2 characters">
 		    <a href="#" class="thumbnail duke">
 		      <img src="assets/images/Duke.png." alt="...">
 		      <div class="caption">
@@ -42,7 +43,7 @@
 		      </div>
 		    </a>
 	    </div>
-	    <div class="col-xs-6 col-md-2">
+	    <div class="col-xs-6 col-md-2 characters">
 		    <a href="#" class="thumbnail stukov">
 		      <img src="assets/images/Stukov.jpg" alt="...">
 		      <div class="caption">
@@ -52,7 +53,7 @@
 		      </div>
 		    </a>
 	    </div>
-	    <div class="col-xs-6 col-md-2">
+	    <div class="col-xs-6 col-md-2 characters">
 		    <a href="#" class="thumbnail tassadar">
 		      <img src="assets/images/tassadar.jpg" alt="...">
 		      <div class="caption">
@@ -62,7 +63,7 @@
 		      </div>
 		    </a>
 	    </div>
-	    <div class="col-xs-6 col-md-2">
+	    <div class="col-xs-6 col-md-2 characters">
 		    <a href="#" class="thumbnail artanis">
 		      <img src="assets/images/Artanis.png" alt="...">
 		      <div class="caption">
@@ -87,164 +88,5 @@
 		</div>
 	</div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script type="text/javascript">
-	var selectedCharacter = false;
-	var selectedEnemy = false;
-	var restartGame = false;
-	var jimAttack = 12;
-	var jimHealth = 150;
-	var jimCounter = 16;
-	var sarahHealth = 180;
-	var sarahAttack = 8;
-	var sarahCounter = 14;
-	var dukeAttack = 10;
-	var dukeHealth = 170;
-	var dukeCounter = 15;
-	var stukovHealth = 200;
-	var stukovCounter = 12;
-	var stukovAttack = 6;
-	var tassadarHealth = 140;
-	var tassadarAttack = 14;
-	var tassadarCounter = 18;
-	var artanisAttack = 16;
-	var artanisHealth = 130;
-	var artanisCounter = 20;
-	var playerHealth;
-	var enemyHealth;
-	var playerAttack;
-	var enemyAttack;
-	var counterAttack;
-	$(".thumbnail").on("click", function(){
-		if(!selectedCharacter && !selectedEnemy){
-			var userCharacter = $(this);
-			$("#player").append(userCharacter);
-			$("#selection").html("Now Select An Enemy");
-			selectedCharacter = true;
-			if($("#player").children("a.jim").hasClass("jim")){
-				playerHealth = jimHealth;
-				playerAttack = jimAttack;
-			}
-			if($("#player").children("a").hasClass("sarah")){
-				playerHealth = sarahHealth;
-				playerAttack = sarahAttack;
-			}
-			if($("#player").children("a").hasClass("duke")){
-				playerHealth = dukeHealth;
-				playerAttack = dukeAttack;
-			}
-			if($("#player").children("a").hasClass("stukov")){
-				playerHealth = stukovHealth;
-				playerAttack = stukovAttack;
-			}
-			if($("#player").children("a").hasClass("tassadar")){
-				playerHealth = tassadarHealth;
-				playerAttack = tassadarAttack;
-			}
-			if($("#player").children("a").hasClass("artanis")){
-				playerHealth = artanisHealth;
-				playerAttack = artanisAttack;
-			}
-			if($("#enemy").children("a").hasClass("jim")){
-				enemyHealth = jimHealth;
-				enemyAttack = jimAttack;
-			}
-		}
-		else if(selectedCharacter && !selectedEnemy){
-			var enemyCharacter = $(this);
-			$("#enemy").append(enemyCharacter);
-			$("#selection").html("Now Fight!");
-			$("#fight-field").html("New Fight!")
-			selectedEnemy = true;
-			if($("#enemy").children("a").hasClass("jim")){
-				enemyHealth = jimHealth;
-				enemyAttack = jimAttack;
-				counterAttack = jimCounter;
-			}
-			if($("#enemy").children("a").hasClass("sarah")){
-				enemyHealth = sarahHealth;
-				enemyAttack = sarahAttack;
-				counterAttack = sarahCounter;
-			}
-			if($("#enemy").children("a").hasClass("duke")){
-				enemyHealth = dukeHealth;
-				enemyAttack = dukeAttack;
-				counterAttack = dukeCounter;
-			}
-			if($("#enemy").children("a").hasClass("stukov")){
-				enemyHealth = stukovHealth;
-				enemyAttack = stukovAttack;
-				counterAttack = stukovCounter;
-			}
-			if($("#enemy").children("a").hasClass("tassadar")){
-				enemyHealth = tassadarHealth;
-				enemyAttack = tassadarAttack;
-				counterAttack = tassadarCounter;
-			}
-			if($("#enemy").children("a").hasClass("artanis")){
-				enemyHealth = artanisHealth;
-				enemyAttack = artanisAttack;
-				counterAttack = artanisCounter;
-			}
-		}
-	})
-
-	$("#attackbtn").on("click", function(){
-		if(selectedEnemy && selectedCharacter && !restartGame){
-			enemyHealth = enemyHealth - playerAttack;
-			playerAttack = playerAttack + 10;
-			playerHealth = playerHealth - counterAttack;
-			$("#fight-field").html("You hit he enemy for " + playerAttack + " damage, reducing their health to " + enemyHealth + ". They counter attacked you for " + counterAttack + " damage, reducing you to " + playerHealth + " health.");
-		}
-		
-		if(playerHealth <= 0 && !restartGame){
-			$("#selection").html("You Lose!");
-			$("#buttons").append("<button type='button' class='btn btn-default' id='restartbtn'>Restart</button>");
-			restartGame = true;
-			$("#restartbtn").on("click", function(){
-				location.reload();
-			})
-		}
-		if(enemyHealth <= 0 && selectedEnemy){
-			playerHealth = playerHealth + counterAttack;
-			$("#fight-field").html("You defeated the opponent, leaving you at " + playerHealth + " health.");
-			$("#selection").html("Select Next Opponent");
-			$("#enemy").empty();
-			selectedEnemy = false;
-		}
-		if($("#characters").is(":empty") && $("#enemy").is(":empty")){
-			$("#selection").html("You Lose!");
-			$("#butons").append("<button type='button' class='btn btn-default' id='restartbtn'>Restart</button>");
-			$("#restartbtn").on("click", function(){
-				location.reload();
-			})
-		}
-		$("#player.health").html("HP: " + playerHealth);
-
-	})
-
-	
-
-		
-	
-
-
-</script>
 </body>
 </html>
