@@ -11,3 +11,9 @@ h1{
 	text-align: center;
 	color: white;
 }
+.thumbnail{
+	background-color: #0243a0;
+}
+.caption p{
+	color: #88b8dc;
+}
